@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries and Capitals</title>
+    
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Fredericka+the+Great&family=Henny+Penny&family=Risque&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Delius&family=Fredericka+the+Great&family=Henny+Penny&family=Risque&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body{
+            background-image: url('https://img.freepik.com/free-vector/hand-drawn-colorful-science-education-wallpaper_23-2148489183.jpg');
+            backdrop-filter:blur(2px);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Fredericka+the+Great&family=Henny+Penny&family=Risque&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Delius&family=Fredericka+the+Great&family=Henny+Penny&family=Risque&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #4A90E2;
+    margin-bottom: 40px;
+}
+.hka{
+    font-family: "Risque", serif;
+    font-size:100px;
+    background: linear-gradient(to right, #ff3300, #ffa967); /* Define the gradient */
+    -webkit-background-clip: text; /* Apply background to text */
+    color: transparent; /* Make the text color transparent so the gradient shows */
+    display: inline;
+}
+.hka1{
+    font-family: "Delius", cursive;
+}
+/* Table styling */
+table {
+   /* width: 60%;
+    margin: auto;
+    border-collapse: collapse;*/
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+    animation: fadeInRows 1s ease-out forwards;
+}
+
+th, td {
+    /*padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;*/
+    padding: 12px 15px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+
+}
+
+th {
+    background-color: #4A90E2;
+    color: white;
+
+}
+td {
+    padding: 12px 15px;
+    background-color:rgb(172, 255, 255);
+    font-size: 16px;
+    border: 3px solid #ddd;
+    transition: background-color 0.3s ease;
+  }
+  tr:hover {
+    background-color: #f1f1f1;
+  }  
+
+/* Button styling */
+button.country-btn {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.country-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Capital text styling */
+.capital {
+    /*display: none;
+    color: #28a745;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;*/
+    font-style: italic;
+    font-weight:bolder;
+  color: #fe0000;
+  font-size: 16px;
+  transition: color 0.3s ease;
+
+}
+.capital.revealed {
+    font-style: normal;
+    color: #333;
+    font-weight: bold;
+  }
+/* Animation for showing the capital */
+/*
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+*/
+@keyframes fadeInButtons {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .country-btn {
+    animation: fadeInButtons 0.6s ease-out forwards;
+  }
+  
+  /* Animating the table rows on hover */
+  tr:hover td {
+    transform: translateY(-5px);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  }
+    </style>
+</head>
+<body>
+
+    <h1 class="hka">Capital Quest:<br> Discover the World’s Capitals!</h1>
+
+    <table id="countriesTable">
+        <thead>
+            <tr>
+                <th class="hka1" style="font-size:50px;">Country</th>
+                <th class="hka1" style="font-size:50px;">Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><button class="country-btn" data-capital="Washington, D.C.">USA</button></td>
+                <td><span class="capital"></span></td>
+            </tr>
+            <tr>
+                <td><button class="country-btn" data-capital="London">UK</button></td>
+                <td><span class="capital"></span></td>
+            </tr>
+            <tr>
+                <td><button class="country-btn" data-capital="Tokyo">Japan</button></td>
+                <td><span class="capital"></span></td>
+            </tr>
+            <tr>
+                <td><button class="country-btn" data-capital="Berlin">Germany</button></td>
+                <td><span class="capital"></span></td>
+            </tr>
+            <tr>
+                <td><button class="country-btn" data-capital="Paris">France</button></td>
+                <td><span class="capital"></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Get all the country buttons
+const countryButtons = document.querySelectorAll('.country-btn');
+
+// Loop through each button and add an event listener
+countryButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Get the capital from the button's data attribute
+        const capital = this.getAttribute('data-capital');
+        
+        // Find the corresponding capital span in the same row
+        const capitalSpan = this.closest('tr').querySelector('.capital');
+        
+        // Set the text of the capital span and display it
+        capitalSpan.textContent = capital;
+        capitalSpan.style.display = 'inline-block';
+        
+        // Apply an animation class to show the capital
+        capitalSpan.classList.add('fadeIn');
+    });
+});
+
+    </script>
+</body>
+</html>

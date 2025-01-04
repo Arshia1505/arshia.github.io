@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map with Audio</title>
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Fredericka+the+Great&family=Henny+Penny&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+   background: linear-gradient(to bottom, #00bfff, #1e3d59);
+    }
+
+h1 {
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out forwards;
+}
+@keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
+}
+.hka{
+    font-family:"Fredericka the Great", serif;
+}
+.map-container {
+    position: relative;
+    display: inline-block;
+    animation: fadeInMap 3s ease-in-out forwards;
+}
+@keyframes fadeInMap {
+    to {
+        opacity: 1;
+    }
+}
+
+.world-map {
+    width: 80%;
+    height: auto;
+    display: block;
+    animation: zoomInMap 2s ease-out forwards;
+}
+@keyframes zoomInMap {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.continent {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0); /* Transparent */
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.continent:hover {
+    opacity: 0.8; /* Slight transparency on hover */
+    transform: scale(1.1); /* Slight zoom-in effect */
+}
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 3s ease-in-out forwards;
+}
+
+/* Fade-in effect for the world map */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.map-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.map-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+   
+    <h1 style="font-size:80px;color:rgb(255, 241, 185);"class="hka">Voyage Through the Continents</h1>
+    <!-- Map Container -->
+    <div style="padding-right:50%;padding-left: 10%;;"class="map-container">
+        <img style="height:190%;width:190%; border-radius:20%;"src="C:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2024-11-26 153144.png" alt="World Map" class="world-map" />        
+    </div>
+    <button id="playButton">Lets Go!</button>
+    <audio id="audioPlayer" preload="auto">
+        <source src="C:\Users\HP\Downloads\visit.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Get the button and audio element
+const playButton = document.getElementById('playButton');
+const audioPlayer = document.getElementById('audioPlayer');
+
+// Add event listener to play the audio when the button is clicked
+playButton.addEventListener('click', function() {
+    // Check if the audio is paused or ended and play it
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playButton.textContent = 'Pause Audio'; // Change button text
+    } else {
+        audioPlayer.pause();
+        playButton.textContent = 'Play Audio'; // Change button text back
+    }
+});
+
+    </script>
+</body>
+</html>

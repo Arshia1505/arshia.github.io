@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Certificate</title>
+    
+    <style>
+        body {
+          background-image: url('https://i.ibb.co/sgFh5n0/back-certi2.jpg');
+        }
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-size: cover;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-color:rgba(255,255,255,0.0);
+    backdrop-filter:blur(5px);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.certificate-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#certificate-image {
+    max-width: 90%;
+    height: auto;
+    border: 5px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+        </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Button to show certificate -->
+        <button id="certificateBtn" onclick="showCertificate()">Show Certificate</button>
+
+        <!-- Hidden certificate container -->
+        <div id="certificate-container" class="certificate-container" style="display: none;">
+            <img id="certificate-image" src="C:\Users\HP\OneDrive\semester 1_y1books\Sem1 fee proj\Nextgen\certififcate.png" alt="Certificate">
+        </div>
+    </div>
+
+    <script>
+        // script.js
+function showCertificate() {
+    // Get the certificate container element
+    const certificateContainer = document.getElementById('certificate-container');
+    
+    // Show the certificate container by changing its display style
+    certificateContainer.style.display = 'block';
+    
+    // Optionally, change the button text after the certificate is shown
+    const certificateBtn = document.getElementById('certificateBtn');
+    certificateBtn.textContent = 'Certificate Shown';
+    certificateBtn.disabled = true;  // Disable the button after showing the certificate
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Geography with Fun</title>
+  
+  <style>
+    body {
+      background-image: url('https://img.freepik.com/premium-photo/teacher-geography-class-with-students-vector-illustration-design-vector-by-grgroupstock_979495-58800.jpg');
+    }
+    /* Basic reset */
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Henny+Penny&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    /*background-color: #f0f8ff;*/
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter:blur(3px);
+  }
+  
+  header {
+    /*background-color: #ffcc00;*/
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #fff;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  main {
+    margin-top: 30px;
+  }
+  .wel{
+    color:rgb(67, 0, 109);
+    font-size:100px;
+    font-weight:800;
+    font-family:"Henny Penny", system-ui;
+  }
+  .pka{
+    font-family:"Sour Gummy", sans-serif;
+    font-size:60px;
+    color:rgb(100, 0, 162);
+    font-weight: 600;
+  }
+  .hka{
+    font-family: "Barriecito", system-ui;
+    color:rgb(195, 0, 0);
+    font-size:60px;
+  }
+  
+  .intro {
+    /*background-color: #ffcc99;*/
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    /*color: #ff6600;*/
+  }
+  
+  .character {
+    width: 150px;
+    margin-top: 20px;
+  }
+  
+  .audio-lessons button {
+   background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .audio-lessons button:hover {
+    background-color: #cc5200;
+  }
+  
+  .map {
+    margin-top: 30px;
+  }
+  
+  .map-image {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+  }
+  
+  footer {
+    background-color: #ffcc00;
+    padding: 15px;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+  
+  footer p {
+    font-size: 1rem;
+    color: white;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 600px) {
+    .character {
+      width: 100px;
+    }
+  
+    .audio-lessons button {
+      width: 100%;
+      font-size: 1rem;
+      padding: 10px;
+    }
+  
+    .map-image {
+      width: 100%;
+    }
+  }
+
+  nav{
+    background-color:white;
+    box-shadow:5px  5px 5px rgba(0,0,0,0.1)
+}
+nav ul{
+    width:100%;
+    list-style:none;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+nav li{
+    height:50px;
+}
+nav a{
+    font-family:cursive;
+    font-weight: bolder;
+    color:rgb(5, 73, 75);
+    height:100%;
+    padding:0px 30px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+}
+.right{
+    float:right;
+}
+nav a:hover{
+    background-color:rgb(232, 255, 196);
+}
+.sidebar{
+    position:fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:250px;
+    z-index:999;
+    background-color:rgba(255,255,255,0.0);
+    backdrop-filter:blur(10px);
+    box-shadow:-10px 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+}
+.sidebar li{
+    width:100%;
+}
+.sidebar a{
+    width:100%;
+}
+@media(max-width:500px){
+    .hideOnMobile{
+        display:none;
+    }
+}
+  
+    </style>
+</head>
+<body>
+  <header>
+    <h1 class="wel">Welcome to Geography Fun!</h1>
+    <p class="pka">Lets learn about the world.</p>
+  </header>  
+  <main>
+    <section class="intro">
+      <h2 class="hka" style="font-size:70px;">Today's Geography Lesson:</h2>
+      
+      <p class="pka" style="font-size:40px;">Let's explore continents and countries and learn cool facts with our friends!</p>
+      <img style="height:30%;width:30%" src="C:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2024-11-26 193353.png" alt="Cartoon Character" class="character">
+    </section>
+
+    <section class="audio-lessons">
+      <h3 class="hka" style="font-size:70px;color:rgb(0, 0, 66);">Click the buttons to hear the lesson:</h3>
+      <button onclick="playAudio('C:/Users/HP/Downloads/geo.mp3')">Lets Learn</button>
+      <a href="file:///C:/Users/HP/OneDrive/htmlfold/continent.html">
+      <button onclick="playAudio('C:/Users/HP/Downloads/the_cont.mp3')">Lesson 1: The Continents</button>
+      </a>
+      <a href="file:///C:/Users/HP/OneDrive/htmlfold/caps.html">
+      <button onclick="playAudio('C:/Users/HP/Downloads/count_caps.mp3')">Lesson 2: Countries & Capitals</button>
+    </a>
+    <a href="file:///C:/Users/HP/OneDrive/geo_quiz.html">
+      <button onclick="playAudio('C:/Users/HP/Downloads/visit.mp3')">Quiz</button>
+      </a>
+    </section>
+<br><br><br>
+    <section class="map">
+      <h3 class="hka" style="font-size:80px;">Interactive World Map</h3>
+      <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2024-11-26 193703.png" alt="World Map" class="map-image">
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Learn Geography with Fun. All rights reserved.</p>
+  </footer>
+
+  <audio id="audioPlayer" preload="auto"></audio>
+
+  <script>
+    // JavaScript to handle the audio playback
+function playAudio(audioFile) {
+    const audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.src = audioFile;
+    audioPlayer.play();
+  }
+  
+  </script>
+</body>
+</html>

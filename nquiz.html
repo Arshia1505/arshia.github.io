@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Quiz for Kids</title>
+
+</head>
+<style>
+      @import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bonbon&family=Kablammo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bonbon&family=Delius+Swash+Caps&family=Gamja+Flower&family=Kablammo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Bonbon&family=Delius+Swash+Caps&family=Gamja+Flower&family=Kablammo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Bonbon&family=Delius+Swash+Caps&family=Gamja+Flower&family=Kablammo&family=Moo+Lah+Lah&display=swap');
+    body {
+      background-image: url('https://i.ibb.co/JqzqxFT/phonics.jpg');
+    }
+  
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;   
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:rgba(255,255,255,0.0);
+    backdrop-filter:blur(2px);
+}
+
+
+
+/* Add a pseudo-element for the backdrop blur effect */
+/*body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent overlay 
+    backdrop-filter: blur(10px); /* Apply blur effect 
+    z-index: -1; /* Ensure it's behind the content 
+
+*/
+
+
+/* Container for the quiz */
+
+.container {
+    
+    box-shadow:-10px 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    border-radius: 20px;  /* Increased the radius for a more rounded look */
+    padding: 30px;        /* Increased padding for more space inside the container */
+    background-color: #fffeda;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    opacity:0.8;
+    width: 100%;
+    height: 50%;           /* Increased width of the container */
+    max-width: 1000px;     /* Set a max-width to avoid stretching too far */
+    min-width: 600px;     /* Set a min-width for better layout on larger screens */
+}
+
+/* Title */
+.title {
+    color: #ff6699;
+    font-size: 48px;      /* Increased font size for the title */
+    margin-bottom: 30px;  /* Increased bottom margin */
+}
+
+/* Progress bar */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin-bottom: 30px;  /* Increased margin for spacing */
+    height: 25px;         /* Increased height for better visibility */
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #33cc33;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Question box */
+.question-box {
+    margin-bottom: 40px;  /* Increased margin for spacing */
+}
+
+.question {
+    font-size: 32px;      /* Increased font size for the question */
+    color: #333;
+    font-weight: bold;
+}
+
+/* Answer buttons */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;            /* Increased gap between buttons */
+    margin-bottom: 30px;  /* Increased bottom margin */
+}
+
+.answer-btn {
+    padding: 30px 40px;   /* Increased padding for bigger buttons */
+    font-size: 30px;      /* Increased font size for buttons */
+    background-color: #ff3366;
+    border: none;
+    border-radius: 15px;  /* Increased border radius for rounded buttons */
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.answer-btn:hover {
+    background-color: #ff6699;
+    transform: scale(1.1);
+}
+
+.answer-btn:active {
+    transform: scale(0.9);
+}
+
+/* Result message */
+.result {
+    font-size: 32px;      /* Increased font size for result */
+    font-weight: bold;
+    color: #ff3366;
+    margin-top: 30px;      /* Increased margin */
+}
+
+/* Next button */
+.next-btn-container {
+    margin-top: 40px;      /* Increased margin for spacing */
+}
+
+.next-btn {
+    padding: 25px 50px;   /* Increased padding for bigger button */
+    font-size: 28px;      /* Increased font size */
+    background-color: #33cc33;
+    border: none;
+    border-radius: 15px;  /* Increased border radius */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.next-btn:hover {
+    background-color: #66cc66;
+}
+
+
+/* Styling for the rocket image */
+/*
+#rocket {
+    position: absolute;
+    width: 100px;  /* Adjust size of the rocket 
+    height: 100px; /* Adjust size of the rocket 
+}
+
+/* Rocket diagonal flight animation 
+@keyframes fly-diagonal {
+    0% {
+        bottom: 0;
+        left: 10%;
+        transform: rotate(0deg);
+    }
+    100% {
+        bottom: 100%;
+        left: 90%;
+        /*transform: rotate(360deg); /* Optional: add spin 
+    }
+}
+
+/* Trigger the animation when the rocket is fired 
+.rocket-moving {
+    animation: fly-diagonal 5s ease-in-out forwards;
+}
+*/
+
+
+/* Floating number/letter styles 
+.floating-item {
+    position: absolute;
+    font-size: 30px;
+    color: rgb(232, 16, 210);
+    font-weight: bold;
+    opacity: 0.7;
+    animation: float 5s ease-in-out infinite, rotate 10s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-200px) translateX(100px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+*/
+
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.question-box, .result {
+    animation: slideIn 0.5s ease-out;
+}
+
+.container {
+    text-align: center;
+  }
+  
+  button {
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  
+  /* Confetti container*/ 
+  #confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+  }
+  
+  /* Confetti styling */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff4081;
+    opacity: 0;
+    border-radius: 0%;
+    transform: rotate(45deg);
+    animation: fall 3s infinite ease-in-out;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(45deg);
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(45deg);
+      opacity: 0;
+    }
+  }
+  
+
+
+/*
+/* General styling for confetti 
+.confetti {
+    position: absolute;
+    background-color: #ff4081; /* Default color 
+    opacity: 0;
+    animation: fall 3s infinite ease-in-out;
+  }
+  
+  /* Square confetti - No border radius for square shape 
+  .confetti.square {
+    border-radius: 0%; /* Ensures confetti is square 
+  }
+  
+  /* Confetti fall animation 
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(45deg);
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(100vh) rotate(45deg);
+      opacity: 0;
+    }
+  }
+  */
+    </style>
+<body>
+    <div class="transbox">
+    <div class="container">
+        <h1 style="font-family: Moo Lah Lah, sans-serif; font-size:150px;font-weight:lighter;color:rgb(189, 0, 0);"class="title">Phonics Fizz!</h1>
+        <button style="margin-top:10px;margin-bottom:20px;" id="finishBtn">Finish</button>
+
+        
+        <!-- Progress bar -->
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div id="question-box" class="question-box">
+            <p style="font-family:Delius Swash Caps, cursive;font-weight:500 px;font-size:60px;color:rgb(0, 111, 139);"id="question" class="question">Which word has the /sh/ sound?</p>
+        </div>
+        
+        <div class="button-container">
+            <button class="answer-btn" onclick="checkAnswer(4)">4</button>
+            <button class="answer-btn" onclick="checkAnswer(5)">5</button>
+            <button class="answer-btn" onclick="checkAnswer(6)">6</button>
+            <button class="answer-btn" onclick="checkAnswer(3)">3</button>
+        </div>
+
+        <div id="result" class="result"></div>
+        <div id="next-btn-container" class="next-btn-container" style="display: none;">
+            <button class="next-btn" onclick="nextQuestion()">Next Question</button>
+        </div>
+    </div>
+    </div>
+    <!-- Rocket container -->
+   <!--<img id="rocket" src="C:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2024-11-06 202239.png" alt="Rocket">-->
+<!-- <div id="rocket" class="rocket"></div>-->
+
+ <!-- Floating numbers and letters will be added here dynamically -->
+<!--<div id="floating-elements"></div>-->
+
+   
+  
+  <div id="confetti-container"></div>
+
+
+    <script>
+        // Question data
+const questions = [
+    {
+        question: " Which word has the /sh/ sound?",
+        options: ["Shoe","Salmon" ,"Cat" ,"Chair" ],
+        correctAnswer: "Shoe"
+        
+    },
+    {
+        question: "Identify the Vowel",
+        options: ["a", "l", "k", "z"],
+        correctAnswer: "a"
+    },
+    {
+        question: "Which letter comes after the letter D",
+        options: ["F", "V", "A", "E"],
+        correctAnswer: "F"
+    }
+];
+
+let currentQuestionIndex = 0;
+
+// Load the first question
+loadQuestion();
+
+function loadQuestion() {
+    const questionData = questions[currentQuestionIndex];
+    document.getElementById("question").textContent = questionData.question;
+
+    const buttons = document.querySelectorAll(".answer-btn");
+    buttons.forEach((button, index) => {
+        button.textContent = questionData.options[index];
+    });
+
+    // Hide result and next button initially
+    document.getElementById("result").style.display = "none";
+    document.getElementById("next-btn-container").style.display = "none";
+
+    // Update progress bar
+    const progressBar = document.getElementById("progress-bar");
+    const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+}
+
+function checkAnswer(selectedAnswer) {
+    const correctAnswer = questions[currentQuestionIndex].correctAnswer;
+    const resultMessage = document.getElementById("result");
+
+    if (selectedAnswer === correctAnswer) {
+        resultMessage.textContent = "Correct! 🎉";
+        resultMessage.style.color = "#33cc33";
+    } else {
+        resultMessage.textContent = "Oops! Try again. 😟";
+        resultMessage.style.color = "#ff3366";
+    }
+
+    resultMessage.style.display = "block";
+    document.getElementById("next-btn-container").style.display = "block";
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        document.querySelector(".container").innerHTML = "<h1>Congratulations! 🎉 You finished the quiz!</h1>";
+    }
+}
+
+
+window.addEventListener("load", () => {
+    const rocket = document.getElementById("rocket");
+    
+    // Start the rocket animation as soon as the page loads
+    rocket.classList.add("rocket-moving");
+    
+    // Once the rocket reaches the end, stop the animation and let it float at the side
+    rocket.addEventListener('animationend', () => {
+        rocket.style.position = 'fixed';
+        rocket.style.left = '10%'; // Position the rocket at the right side
+        rocket.style.bottom = '10%'; // Keep the rocket floating on the side
+        rocket.style.transform = 'translateX(-50%)';// Ensure it is properly centered
+    });
+});
+/*
+// Function to generate a random number
+function generateRandomNumber() {
+    return Math.floor(Math.random() * 10); // Generates a number between 0 and 9
+}
+
+// Function to generate a random letter
+function generateRandomLetter() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const randomIndex = Math.floor(Math.random() * letters.length);
+    return letters[randomIndex]; // Returns a random letter from A-Z or a-z
+}
+
+// Function to create and animate a floating number or letter
+function createFloatingItem() {
+    const item = document.createElement('div');
+    item.classList.add('floating-item');
+    
+    // Randomly choose between a number and a letter
+    const randomChoice = Math.random() > 0.5 ? generateRandomNumber() : generateRandomLetter();
+    
+    item.textContent = randomChoice;
+
+    // Set random positions for the item
+    const randomLeft = Math.random() * window.innerWidth;
+    const randomTop = Math.random() * window.innerHeight;
+    item.style.left = `${randomLeft}px`;
+    item.style.top = `${randomTop}px`;
+
+    // Randomly change the animation speed and size
+    const animationDuration = 3 + Math.random() * 7; // Random float between 3 and 10 seconds
+    const size = 20 + Math.random() * 40; // Random size between 20px and 60px
+    item.style.fontSize = `${size}px`;
+    item.style.animationDuration = `${animationDuration}s`; 
+
+    // Add the floating item to the page
+    document.body.appendChild(item);
+
+    // Remove the item after it has completed its animation
+    setTimeout(() => {
+        item.remove();
+    }, animationDuration * 1000);
+}
+
+// Create random floating numbers/letters every 1 second
+setInterval(createFloatingItem, 1000);
+*/
+
+
+
+
+document.getElementById('finishBtn').addEventListener('click', function () {
+    createConfetti();
+  });
+  
+  function createConfetti() {
+    const confettiContainer = document.getElementById('confetti-container');
+    const colors = ['#ff4081', '#ffcd3c', '#40c4ff', '#7c4dff', '#00e676'];
+  
+    for (let i = 0; i < 150; i++) {
+      const confettiPiece = document.createElement('div');
+      confettiPiece.classList.add('confetti');
+  
+      // Set random color
+      confettiPiece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+       // Set larger size (for example, 30px to 60px)
+       const size = Math.random() * 10 + 10; // Random size between 30px and 60px
+       confettiPiece.style.width = `${size}px`;
+       confettiPiece.style.height = `${size}px`;
+  
+      // Random starting position
+      confettiPiece.style.left = Math.random() * 100 + 'vw';
+  
+      // Random animation duration and delay
+      const animationDuration = Math.random() * 2 + 2 + 's';
+      const animationDelay = Math.random() * 2 + 's';
+  
+      confettiPiece.style.animationDuration = animationDuration;
+      confettiPiece.style.animationDelay = animationDelay;
+  
+      confettiContainer.appendChild(confettiPiece);
+  
+      // Remove the confetti after animation ends
+      setTimeout(() => {
+        confettiPiece.remove();
+      }, parseFloat(animationDuration) * 1000);
+    }
+  }
+
+
+
+/*
+document.getElementById('finishBtn').addEventListener('click', function () {
+    createConfetti();
+  });
+  
+  function createConfetti() {
+    const confettiContainer = document.getElementById('confetti-container');
+    const colors = ['#ff4081', '#ffcd3c', '#40c4ff', '#7c4dff', '#00e676'];
+  
+    for (let i = 0; i < 150; i++) {
+      const confettiPiece = document.createElement('div');
+      confettiPiece.classList.add('confetti', 'square'); // Make all confetti square
+  
+      // Set random color
+      confettiPiece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  
+      // Set larger size (for example, 30px to 60px)
+      const size = Math.random() * 30 + 30; // Random size between 30px and 60px
+      confettiPiece.style.width = `${size}px`;
+      confettiPiece.style.height = `${size}px`;
+  
+      // Random starting position
+      confettiPiece.style.left = Math.random() * 100 + 'vw';
+  
+      // Random animation duration and delay
+      const animationDuration = Math.random() * 2 + 3 + 's'; // Longer animation time
+      const animationDelay = Math.random() * 2 + 's'; // Random delay
+  
+      confettiPiece.style.animationDuration = animationDuration;
+      confettiPiece.style.animationDelay = animationDelay;
+  
+      confettiContainer.appendChild(confettiPiece);
+  
+      // Remove the confetti after animation ends
+      setTimeout(() => {
+        confettiPiece.remove();
+      }, parseFloat(animationDuration) * 1000);
+    }
+  }
+    */
+  
+    </script>
+</body>
+</html>
