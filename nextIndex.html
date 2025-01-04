@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Educational"/>
+        <meta name="keywords" content="Engaging quizes, Learning, Elementary kids, Tutorials"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <title>nextgenacademy.com</title>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Reddit+Sans+Condensed:wght@200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kay+Pho+Du:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    
+}
+
+div{
+    margin:0px 0px;
+    padding:0px 0px;
+   
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:100% 100%;
+    backdrop-filter:blur(5px);
+    min-height:100vh;
+    
+}
+.pic{
+    margin:0;
+    padding:0;
+    width:50px;
+    height:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+div img{
+    position:relative;
+    float:right;
+    padding-right:50px;
+    height:300px;
+    width:500px;
+}
+div h1{
+    color:rgb(12, 66, 63);
+    font-size:60px;
+    font-family: "Playpen Sans", cursive;
+    display:flex;
+    padding-left:100px;
+    padding-top:100px;
+}
+.image{
+    position:relative;
+    height:100;
+    left:0px;
+    width:100px;
+
+}
+
+nav{
+    background-color:white;
+    box-shadow:5px  5px 5px rgba(0,0,0,0.1)
+}
+nav ul{
+    width:100%;
+    list-style:none;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+nav li{
+    height:50px;
+}
+nav a{
+    font-family:cursive;
+    font-weight: bolder;
+    color:rgb(5, 73, 75);
+    height:100%;
+    padding:0px 30px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+}
+.right{
+    float:right;
+}
+nav a:hover{
+    background-color:rgb(232, 255, 196);
+}
+.sidebar{
+    position:fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:250px;
+    z-index:999;
+    background-color:rgba(255,255,255,0.0);
+    backdrop-filter:blur(10px);
+    box-shadow:-10px 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+}
+.sidebar li{
+    width:100%;
+}
+.sidebar a{
+    width:100%;
+}
+@media(max-width:500px){
+    .hideOnMobile{
+        display:none;
+    }
+}
+header {
+    background-image:url(&quot;https://storage.googleapis.com/yogaya_product_website/landing_page/gradient.svg&quot;);
+    color: #104554; 
+    text-align: center; 
+    font-size:40px;
+    
+    /*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+    
+
+    /*font-family: "Playwrite DE Grund", cursive;*/
+    
+}
+.content{
+    margin:50px 40px;
+    padding:30px 50px;
+    
+    
+} 
+.content h2{
+    font-size:50px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight:400;
+}
+.content p{
+    font-size:30px;
+    font-family: "Quicksand", sans-serif;    
+}
+.button{
+	background-color:#065e59;
+	padding:15px 32px;
+	position:relative;
+	font-family: 'Open Sans', sans-serif;
+	font-size:20px;
+	text-decoration:none;
+	color:#fff;
+	background-image: linear-gradient(bottom, rgb(30, 170, 49) 0%, rgb(6, 53, 20) 100%);
+	box-shadow: inset 0px 1px 0px #abf17f, 0px 6px 0px #0d6f25;
+	border-radius: 5px;
+}
+
+.button:active {
+	top:7px;
+	background-image: linear-gradient(bottom, rgb(100,170,30) 100%, rgb(129,212,51) 0%);
+	box-shadow: inset 0px 1px 0px #b2f17f, inset 0px -1px 0px #3d6f0d;
+	color: #156785;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.3);
+	background: rgb(44,160,202);
+}
+.button::before {
+	background-color:#072239;
+	content:"";
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	padding-left:2px;
+	padding-right:2px;
+	padding-bottom:4px;
+	left:-2px;
+	top:5px;
+	z-index:-1;
+	border-radius: 6px;
+	box-shadow: 0px 1px 0px #fff;
+}
+.button::before {
+	top:-2px;
+}
+.courses{
+    margin:10px 10px;
+    padding:30px 30px;
+}
+.courses h2{
+    font-size:6em;
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+    color:rgb(6, 92, 95);
+    text-align:center;
+}
+
+.preskl{
+    width:800px;
+    margin:10px 10px;
+    padding:50px 50px;
+    overflow-wrap:normal;
+    animation-name: angelballY;
+    animation: angelballY 3s ease-in 0s infinite reverse;
+}
+.preskl p{
+    font-weight:470;
+    font-size:30px;
+    font-family: "Dosis", sans-serif;
+}
+.preskl h3{
+    font-size:50px;
+    color:#064b5e;
+
+}
+@keyframes angelballY {
+    from {}
+
+    to {
+        transform: translateY(100px);
+    }
+
+}
+.lightbox-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.lightbox-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-container::before,
+.lightbox-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-container::before {
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+}
+
+.lightbox-container::after {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.lightbox-container:hover::before {
+    opacity: 1;
+}
+
+.lightbox-container:hover::after {
+    opacity: 1;
+}
+
+.lightbox-container:hover .lightbox-image {
+    transform: scale(1.1);
+}
+.rocket-container {
+    position: relative;
+    height: 100vh; /* Full height */
+}
+
+.rocket {
+    position: absolute;
+    bottom: 0; /* Start at the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the rocket */
+    animation: moveRocket 4s linear infinite; /* Animation properties */
+}
+
+@keyframes moveRocket {
+    0% {
+        bottom: 0; 
+    }
+    100% {
+        bottom: 100%; 
+        transform: translateX(-50%) translateY(-100%); 
+    }
+}
+/*.reviews{
+    margin:10px 10px;
+    padding:10px 10px;
+    display:flex;
+}*/
+footer {
+    position:relative;
+    top:3500px;
+    bottom:500px;
+    background-color: #46a5a5;
+    color: rgb(250, 250, 250);
+    text-align: center;
+}
+.footerContainer{
+    width:100%;
+    height:200px;
+    padding:70px 30px 20px;
+}
+
+.footerNav {
+    margin:10px 60px;
+}
+.footerNav ul{
+    display:flex;
+    justify-content:space-between;
+    gap:100px;
+    list-style-type:none;
+}
+.footerNav ul li a{
+    color:white;
+    margin:20px;
+    text-decoration: none;
+    font-size:2em;
+    opacity:0.7;
+    transition:0.5s;
+}
+.footerNav ul li a:hover{
+    opacity:1;
+}
+.footerBottom{
+    background-color:#000000;
+    padding:20px;
+    text-align:center;
+}
+.footerBottom p{
+    color:white;
+}
+
+/*.foo{
+    position:relative;
+    top:3500px;
+    bottom:500px;
+
+}*/
+@media(max-width:700px){
+    .footerNav ul{
+        flex-direction:column;
+    }
+    .footerNav ul li{
+        width:100%;
+        text-align:center;
+        margin:10px;
+    }
+}
+.bottom{
+    font-size:1.5em;
+     background-color: #2b4544; 
+    color: #fff; 
+    text-align: center; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+}
+@media (max-width: 600px) {
+    .favicons img {
+      width: 24px;  /* Smaller size on mobile */
+    }
+  }
+  
+
+
+    
+
+        </style>
+    </head>
+    <body>  
+        <nav>
+            <ul class="sidebar">
+              <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="#jumpCourses">3+</a></li>
+                <li><a href="#a5+">5+</a></li>
+                <li><a href="#a8+">8+</a></li>
+                <li><a href="#aStoryTime">Story Time</a></li> 
+                <li><a href="file:///C:/Users/HP/OneDrive/htmlfold/certi.html">Certificate</a></li> 
+               
+            </ul>
+            <ul>
+                <li class="hideOnMobile"><a href="file:///C:/Users/HP/OneDrive/htmlfold/creative.html">EXPLORE</a></li>
+                <li class="hideOnMobile"><a href="#jumpCourses">COURSES</a></li>
+                <li class="hideOnMobile"><a href="#a">ABOUT</a></li>
+                <li style="padding-left:750px;"class="hideOnMobile"><a href="#co">CONTACT</a></li>  
+                <li><a href="file:///C:/Users/HP/OneDrive/htmlfold/login.html">LOGIN</a></li>
+                <li onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>                
+            </ul>
+        </nav>
+
+        <script>
+            function showSidebar(){
+                const sidebar=document.querySelector('.sidebar')
+                sidebar.style.display='flex'
+            }
+            function hideSidebar(){
+                 const sidebar=document.querySelector('.sidebar')
+                 sidebar.style.display='none'
+            }
+        </script>
+         <header> 
+            <h1 style="font-weight:400;">NextGen Academy</h1> 
+            <p>Learning The Next Adventure</p> 
+        </header> 
+        <br>
+        <div class="content">
+            <br><br><br><br>
+            <video style="float:right;padding-bottom:-200px;"data-v-af900918="" id="heroVideo" height="540" width="626" autoplay="autoplay" muted="muted" loop="loop" playsinline="" class="hero_video_asset"src="https://svideos.brainpop.com/assets/videos/marketing/public/BrainPOP_Hero_Full_1_4mb.mp4?c0b9258e3591208c0d11bb77163ad1c278505636f128d13e955ecf02ff45adeaf1e2f1b5cdca66acfd4b4feefafeeaa45043dd37b4d59380197871dea6209a6d"></video>
+            <h2>Fuel a love for fun learning <br>as the next great idea<br> waits to be discovered</h2>
+            <p>Every great innovation began as a dream.<br> What’s yours?</p>
+            <br><br><br><br><br><br>
+            <h2 style="font-family:Kay Pho Du, serif;font-size:40px;">Discover solutions to meet learning goals</h2>
+            <a href="file:///C:/Users/HP/OneDrive/htmlfold/creative.html"><button class="button">Discover</button></a>         
+           
+        </div>
+        <div class="courses">
+            <h2 style>Ready...Get...Set...Go!</h2>
+            <br>
+    <!--<h3 style="color:rgb(5, 43, 95); text-align:center; font-size:80px; font-weight:lighter; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Courses</h3>-->
+        <!--<div class="rocket-container">
+            <img src="C:\Users\HP\OneDrive\Pictures\Desktop\Nextgen\n6.png" alt="Rocket" class="rocket">
+        </div>-->
+        <a id="jumpCourses">
+
+            <div class="preskl">
+                <p>For pre-school</p>
+                <a href="file:///C:/Users/HP/OneDrive/htmlfold/jj'/fun-with-numbers.html"><h3>Fun with Numbers</h3></a>
+                <br>
+                <p>Aimed for kids aged 3+, this course provides an engaging platform for learning and identifying multiple numbers, science facts,
+                  history lessons,identifying animal sounds, understanding different weather and seasons, playing with geometrical shapes 
+                  and many more fun activities.
+                   
+                </p>
+                <a href="file:///C:/Users/HP/OneDrive/htmlfold/quiz3.html"><button style="margin-left:300px;margin-bottom:50px;"class="button">Pop Quiz</button></a>
+
+                <div class="lightbox-container">
+                    <img src="C:\Users\HP\OneDrive\semester 1_y1books\Sem1 fee proj\Nextgen\n2.jpeg" alt="Sample Image" class="lightbox-image">
+                </div>
+                
+            </div>
+            </a>
+            <a id="a5+">
+            <div style ="float:right"class="preskl">
+                <p>For 5+</p>
+                <a href="file:///C:/Users/HP/OneDrive/htmlfold/fee%20project/phonic%20fun%20games.html"><h3>Phonics Fun</h3></a>
+                <br>
+                <p>For 5-year-olds, academic learning can be engaging and fun.We provide alphabet recognition, Phonics,
+                    Simple Reading, Learning to count to 100 and beyond. Basic Addition and Subtraction, creating and recognizing patterns, 
+                    Nature Exploration, Maps and Locations,Community and Family, Cultural Awareness.
+                </p>
+    
+                <a href="file:///C:/Users/HP/OneDrive/htmlfold/nquiz.html"><button style="margin-left:300px;margin-bottom:50px;margin-top:40px;"class="button">Sound It Out!</button></a>
+                <div class="lightbox-container">
+                    <img src="C:\Users\HP\OneDrive\semester 1_y1books\Sem1 fee proj\Nextgen\n5.webp" alt="Sample Image" class="lightbox-image">
+                </div>
+            </div>
+            </a>
+
+            <br>
+            
+            
+            <div style="float:left" class="preskl">
+                <p>For 8+</p>
+                <a id="a8+">
+                <a href="file:///C:/Users/HP/OneDrive/htmlfold/geo.html"><h3>Wonder Seekers</h3></a>
+                <br>
+                <p>
+                    Studying effectively as an 8-year-old can be both fun and productive! Here kids can explore many language arts like:
+                    Creative Writing, Grammar Basics, Reading Comprehension. Discover and hone Problem Solving and Critical thinking
+                     skills.  Tackling word problems, learning about the solar system and space phenomena, area, perimeter of shapes are some of the many
+                     engaging activities to indulge in.                 
+                </p>
+                <a href="file:///C:/Users/HP/OneDrive/geo_quiz.html"><button style="margin-left:300px;margin-bottom:50px;"class="button">Pop Quiz</button></a>
+                <div class="lightbox-container">
+                    <img src="C:\Users\HP\OneDrive\semester 1_y1books\Sem1 fee proj\Nextgen\n4.jpg" alt="Sample Image" class="lightbox-image">
+                </div>
+            </div>
+            </a>
+
+           
+            <div style="float:right" class="preskl">
+                <a id="aStoryTime">
+                <p>Step into Land of Fantasy</p>
+                <a href="file:///C:/Users/HP/OneDrive/htmlfold/jj'/storys.html"><h3>Story Time</h3></a>
+                <br>
+                <p>
+                    Welcome to the land of Fantasy and Adventure. Stories are the best form of creative writing. 
+                    Whether its about Cinderlla's missing shoe or Jack and The Beastalk each stroy offers a roller coaster
+                    ride of emotions and suspense.              
+                </p>
+                <div class="lightbox-container">
+                    <img src="C:\Users\HP\OneDrive\semester 1_y1books\Sem1 fee proj\Nextgen\n8.png" alt="Sample Image" class="lightbox-image">
+                </div>
+            </div>
+            </div>
+        </a>
+    
+       <!-- <div class="reviews">
+            <h2>Testimonials</h2>
+            <p>See what people are saying.</p>
+            <h3>My 4 year old absolutely loves NextGen Academy! The interative lessons and fun games keep her engaged and excited
+                to learn. It's incredible to see her progress so quickly!
+            </h3>
+            <p>Siddtharth Malhotra, VP Product,Deckow-Christ</p>
+
+            <h3>As a parent I highly recommend NextGen Academy. The education content is top-notch and the website is user-friendly
+                It's a great for children to have fun and learn at the same time.
+            </h3>
+            <p>Aishwaraya Sharma,VP Sales,Deckow-Christ</p>
+            <h3>NextGen Academy has been a game changer for my 6 year old. The personalized learning courses and creative quality of content
+                helped boost his confidence and academic performance.
+            </h3>
+            <p>Nihar Singh, VP Product,Berth Street</p>
+
+        -->
+    <footer>
+    <div class="footerContainer">
+        <div class="footerNav">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Explore</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Services</a></li>
+            </ul>
+            <hr style="size:50%;">
+            <h2 style="position:relative;top:80px;font-size:50px;">NextGen Academy</h2>
+            <p style="position:relative;top:100px;left:30px;font-size:1em;">For more information contact via mail: NextgenAcademy@gmail.com</p>
+
+    
+        </div>
+    </div>   
+    <p class="bottom">© 2024 NextGen Academy. All rights reserved.</p> 
+    </footer>
+
+  
+    </body>
+    </html>
