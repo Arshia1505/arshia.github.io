@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Matching Game</title>
+  <style>
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://media.istockphoto.com/id/491183928/vector/cute-vintage-toys-background-suitable-for-wrapping-paper.jpg?s=612x612&w=0&k=20&c=r2ZNZizGqrm_rgN5knXX7pAuBmiEw6VYjDF21OVSrCI=')no-repeat center center fixed, 
+                  linear-gradient(to bottom, #FFD700, #87CEFA);
+      font-family: 'Comic Sans MS', sans-serif;
+      background-size: cover;
+      text-align: center;
+      color: #fff;
+      
+    }
+    
+
+    h1 {
+      margin: 20px 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px #050505;
+    }
+
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-gap: 15px;
+      justify-content: center;
+      margin: 20px auto;
+      max-width: 400px;
+    }
+
+    .card {
+      width: 100px;
+      height: 100px;
+      background: #FF6347;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      transition: transform 0.3s;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+      background: #32CD32;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    .reset-button {
+      margin: 20px 0;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: #32CD32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s;
+    }
+
+    .reset-button:hover {
+      background: #228B22;
+    }
+  </style>
+</head>
+<body>
+  <h1>Memory Matching Game</h1>
+  <div class="game-board" id="game-board"></div>
+  <button class="reset-button" onclick="resetGame()">Reset Game</button>
+
+  <script>
+    const symbols = ["🍎", "🍌", "🍓", "🍇", "🍒", "🍍", "🥝", "🍑"];
+    let cards = [...symbols, ...symbols]; // Duplicate for matching pairs
+    let flippedCards = [];
+    let matchedCards = [];
+
+    const gameBoard = document.getElementById('game-board');
+
+    // Shuffle the cards
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    // Initialize the game board
+    function createGameBoard() {
+      gameBoard.innerHTML = ''; // Clear previous cards
+      cards = shuffle(cards);
+      cards.forEach((symbol, index) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.index = index;
+        card.dataset.symbol = symbol;
+        card.addEventListener('click', handleCardClick);
+        gameBoard.appendChild(card);
+      });
+    }
+
+    // Handle card click
+    function handleCardClick(e) {
+      const card = e.target;
+
+      // Prevent flipping already matched or flipped cards
+      if (flippedCards.length === 2 || card.classList.contains('flipped') || matchedCards.includes(card.dataset.index)) {
+        return;
+      }
+
+      card.textContent = card.dataset.symbol; // Reveal symbol
+      card.classList.add('flipped');
+      flippedCards.push(card);
+
+      if (flippedCards.length === 2) {
+        checkForMatch();
+      }
+    }
+
+    // Check if two flipped cards match
+    function checkForMatch() {
+      const [card1, card2] = flippedCards;
+
+      if (card1.dataset.symbol === card2.dataset.symbol) {
+        matchedCards.push(card1.dataset.index, card2.dataset.index);
+        card1.classList.add('hidden');
+        card2.classList.add('hidden');
+      } else {
+        setTimeout(() => {
+          card1.classList.remove('flipped');
+          card2.classList.remove('flipped');
+          card1.textContent = '';
+          card2.textContent = '';
+        }, 1000);
+      }
+
+      flippedCards = [];
+
+      // Check for game completion
+      if (matchedCards.length === cards.length) {
+        alert('Congratulations! You matched all the pairs!');
+      }
+    }
+
+    // Reset the game
+    function resetGame() {
+      flippedCards = [];
+      matchedCards = [];
+      createGameBoard();
+    }
+
+    // Start the game
+    createGameBoard();
+      </script>
+          <audio id="background-audio">
+            <source src="C:\Users\hp\Desktop\project sounds\feel-good-268714.mp3" type="audio/wav">
+            Your browser does not support the audio element.
+            <script>
+                const audio = document.getElementById('background-audio');
+            
+                function enableAudio() {
+                    audio.play();
+                    document.removeEventListener('click', enableAudio); 
+                }
+            
+                document.addEventListener('click', enableAudio);
+      </script>
+  
+  </body>
+</html>

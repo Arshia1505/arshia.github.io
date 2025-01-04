@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phonics Fun - Games</title>
-    <link rel="stylesheet" href="phonics fun games.css">
-    <script src="phonics fun games.js" defer></script>
+    <link rel="stylesheet" href="phonic fun games.css">
+    <script src="phonic fun games.js" defer></script>
 </head>
 <body>
     <style>
@@ -15,24 +15,24 @@
     padding: 0;
 }
 
-    body, html {
-        font-family: 'Comic Sans MS', sans-serif;
-        background: linear-gradient(135deg, #b2cf51, #c3c9b0);
-        background-image: url('https://files.oaiusercontent.com/file-5HaobQc9vLAFovQNyfAx30T4?se=2024-11-18T08%3A46%3A59Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D00d3914b-b161-4ebf-a4fa-d1028bcb2b62.webp&sig=AS3SsUBI01Hs7ti4ys6DT0MD/SbHMGoIQ33hDU64VWE%3D');
-        background-size: cover;
-        background-attachment: fixed;
-        background-position: center;
-        backdrop-filter: blur(5px);
-        color: #f3a3a3;
-        text-align: center;
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        overflow-y: auto; 
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background: url('https://maughons.com/cdn/shop/products/cartoon-animals-wallpaper-mural-custom-sizes-available-maughons-783274_1024x1024.jpg?v=1632707043') no-repeat center center fixed, 
+                linear-gradient(135deg, #bcda5a, #bdc4a7);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    color: #696868;
+    text-align: center;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto; 
 }
+
 .container {
     width: 50%;
     max-width: 1200px;
@@ -46,7 +46,7 @@
 }
 
 header {
-    background-color: rgba(247, 241, 241, 0.8);
+    background-color: rgba(189, 186, 186, 0.8);
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -86,7 +86,7 @@ p {
 }
 
 .game-btn {
-    background-color: #1e88b9;
+    background-color: #4898bd;
     border: none;
     padding: 20px 40px;
     font-size: 2rem;
@@ -168,8 +168,8 @@ footer p {
 
         <!-- Game Buttons -->
         <section class="game-buttons">
-            <button class="game-btn" onclick="playSound('alphabet')">🔤 Alphabet Game</button>
-            <button class="game-btn" onclick="playSound('matching')">🔠 Matching Game</button>
+            <a href="alphabet game.html"><button class="game-btn" onclick="playSound('alphabet')">🔤 Alphabet Game</button></a>
+            <a href="memory matching game.html"><button class="game-btn" onclick="playSound('matching')">🔠 Matching Game</button></a>
             <button class="game-btn" onclick="playSound('memory')">🧠 Memory Game</button>
         </section>
 

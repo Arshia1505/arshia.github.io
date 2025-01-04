@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonics Fun</title>
+    <link rel="stylesheet" href="project phonic fun.css">
+    <script src="project phonic fun.js" defer></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5em;
+        background: url('https://img.freepik.com/premium-photo/cartoon-little-kids-with-rainbows-background_257043-34803.jpg') no-repeat center center fixed, 
+                    linear-gradient(135deg, #fbd0d0 0%, #fbd0d0 100%);
+        margin: 0;
+        padding: 20px;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: center;
+        min-height: 100vh;
+        overflow-y: auto;
+        color: #333333; 
+    }
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(2, 2, 2, 0.1);
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+        border: 5px solid #e268c4;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(8px);
+        background-color: rgba(188, 183, 206, 0.6); 
+        margin-top: 1px;
+    }
+    
+    header h1 {
+        font-family: 'Baloo', cursive;
+        font-size: 3.5em;
+        color: #373738; 
+        text-shadow: 0 0 8px #616363, 0 0 15px #768d8a;
+        margin-bottom: 5px;
+        font-weight: bold;
+        animation: pulse 1s ease-in-out infinite alternate;
+    }
+    
+    
+    header p {
+        font-family: 'Baloo', cursive;
+        font-size: 1.5em;
+        color: #435d72; 
+    }
+    
+    @keyframes pulse {
+        from {
+            text-shadow: 0 0 5px #f3c8c8, 0 0 12px #185186;
+        }
+        to {
+            text-shadow: 0 0 12px #122666, 0 0 20px #a89696;
+        }
+    }
+    
+    
+    nav button {
+        font-family: 'Fredoka One', sans-serif;
+        background-color: #1e576d; 
+        color: #f7f1f1; 
+        font-size: 1.5em;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(67, 144, 206, 0.4);
+    }
+    nav button:hover {
+        background-color: #f36bd1;
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #888682;
+    }
+    .section {
+        background: linear-gradient(45deg, #FF66B2, #FF3385, #00FFFF, #9B59B6); 
+        border-radius: 15px;
+        padding: 20px;
+        margin: 50px;
+        box-shadow: 0px 0px 20px rgba(255, 102, 178, 0.6); 
+        transition: transform 0.4s ease;
+        animation: popIn 1s ease forwards;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .section:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .section img {
+        width: 250px;
+        max-height: 180px;
+        margin-bottom: 20px;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        animation: float 2s ease-in-out infinite;
+    }
+    @keyframes popIn {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    footer {
+        background-color: #615e60; 
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.1em;
+        color: #e0d9d9;
+        text-shadow: 0 0 5px #fd8d8d;
+    }
+    
+    .stars {
+        font-size: 3.5em;
+        color: #fad65f; 
+        animation: sparkle 1s ease-in-out infinite;
+    }
+    
+    @keyframes sparkle {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+    .section a{
+        text-decoration:none;
+    }
+    
+        </style>
+<body>
+  
+    <div class="container">
+       
+        <header>
+            <h1 onclick="enableAudio()">Phonics Fun</h1>
+            <p>Jump into the World of Phonics Fun!</p>
+        </header>
+        <nav>
+            <button>Home</button>
+            <button>Lessons</button>
+            <button>Games</button>
+            <button>Rewards</button>
+        </nav>
+        <section class="content">
+            <div class="section">
+                <img src="https://assets.iflscience.com/assets/articleNo/74933/aImg/77246/alphabet-meta.png" alt="Alphabet Icon">
+                <a href="learn the alphabet.html">
+                <h2>Learn the Alphabet</h2></a>
+                <p>Alphabet Sounds: The First Step to Reading Magic!</p>
+            </div>
+            <div class="section">
+                <img src="https://bookzoo.in/cdn/shop/articles/10_Phonic_games_800x800.png?v=1687513483" alt="Games Icon">
+                <a href="phonic fun games.html">
+                <h2>Phonic Games</h2></a>
+                <p>Game On! Let’s Learn Phonics the Fun Way!</p>
+            </div>
+            <div class="section">
+                <img src="https://www.education.com/files/static/game-images/lion-and-the-rat-thumbnail-2022-12-13.jpg" alt="Stories Icon">
+                <a href="story wala page.html">
+                <h2>Interactive Stories</h2></a>
+                <p>Interactive Tales for Little Learners!</p>
+            </div>
+            <div class="section">
+                <img src="https://play-lh.googleusercontent.com/D56mHZNqr468ab-vegzC2kHT3KIGWgQ2sELHKo-1vUKm1487MNhnPV-R3vUD35mZ1Q=w240-h480-rw" alt="Videos Icon">
+                <a href="phonic videos.html">
+                <h2>Phonics Videos</h2></a>
+                <p>Watch videos to learn with music and animations!</p>
+            </div>
+        </section>
+
+
+        <section class="additional-section">
+            <h2>Levels of Learning</h2>
+            <div class="level-section">
+                <h3>Level 1: Sounds & Letters</h3>
+                <p>Start with basic sounds and letters.</p>
+            </div>
+            <div class="level-section">
+                <h3>Level 2: Words & Sentences</h3>
+                <p>Form words and simple sentences.</p>
+            </div>
+            <div class="level-section">
+                <h3>Level 3: Short Stories</h3>
+                <p>Listen to and read short stories.</p>
+            </div>
+        </section>
+
+        <section class="rewards-section">
+            <h2>Earn Stars & Stickers!</h2>
+            <p>Complete levels and collect rewards for your achievements!</p>
+            <div class="stars">
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+            </div>
+        </section>
+            
+       
+        <footer>
+            <p>© 2024 Phonics Fun. All rights reserved.</p>
+        </footer>
+
+    </div>
+    <audio id="background-audio">
+        <source src="C:\Users\hp\Desktop\fee project\welcoming audio. mp3.wav" type="audio/wav">
+        Your browser does not support the audio element.
+        <script>
+            const audio = document.getElementById('background-audio');
+        
+            function enableAudio() {
+                audio.play();
+                document.removeEventListener('click', enableAudio); 
+            }
+        
+            document.addEventListener('click', enableAudio);
+        </script>
+        
+</body>
+</html>

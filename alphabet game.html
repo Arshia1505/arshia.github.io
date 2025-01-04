@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alphabet Popping Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://cdn.vectorstock.com/i/1000v/75/19/animals-alphabet-background-set-of-cartoon-vector-18037519.jpg')no-repeat center center fixed, 
+                  linear-gradient(to bottom, #FFD700, #87CEFA);
+      font-family: 'Comic Sans MS', sans-serif;
+      background-size: cover;
+      text-align: center;
+      color: #fffcfc;
+      overflow: hidden;
+      overflow-y: auto; 
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 20px 0;
+      text-shadow: 2px 2px 5px #0f0f0f;
+    }
+
+    .game-container {
+      margin: 20px auto;
+      max-width: 800px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .letter {
+      background: radial-gradient(circle, #FF6347, #FF4500);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .letter:hover {
+      transform: scale(1.1);
+      background: radial-gradient(circle, #32CD32, #228B22);
+    }
+
+    #target {
+      font-size: 2rem;
+      margin: 20px;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .score {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    .reset-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      background: #32CD32;
+      color: white;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s;
+    }
+
+    .reset-button:hover {
+      background: #228B22;
+    }
+
+   
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      animation: float 10s infinite ease-in;
+      z-index: -1; 
+      border-radius: 50%;
+      width: 60px;
+      height: 80px;
+      background-color: #FF6347;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateX(0) translateY(0);
+      }
+      100% {
+        transform: translateX(calc(50vw * var(--direction))) translateY(-100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Alphabet Popping Game</h1>
+  <p id="target">Find the letter: <strong id="current-letter"></strong></p>
+  <div class="game-container" id="game-container"></div>
+  <div class="score" id="score">Score: 0</div>
+  <button class="reset-button" onclick="resetGame()">Reset Game</button>
+
+  <script>
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    const gameContainer = document.getElementById("game-container");
+    const targetLetterDisplay = document.getElementById("current-letter");
+    const scoreDisplay = document.getElementById("score");
+
+    let targetLetter = "";
+    let score = 0;
+
+    function generateButtons() {
+      gameContainer.innerHTML = ""; 
+      letters.forEach(letter => {
+        const button = document.createElement("button");
+        button.classList.add("letter");
+        button.textContent = letter;
+        button.onclick = () => handleLetterClick(letter, button);
+        gameContainer.appendChild(button);
+      });
+    }
+
+    function setTargetLetter() {
+      if (letters.length === 0) {
+        alert("Game Over! All letters have been popped!");
+        return;
+      }
+      targetLetter = letters[Math.floor(Math.random() * letters.length)];
+      targetLetterDisplay.textContent = targetLetter;
+    }
+
+    function handleLetterClick(letter, button) {
+      if (letter === targetLetter) {
+       
+        const index = letters.indexOf(letter);
+        if (index !== -1) letters.splice(index, 1);
+
+   
+        button.style.backgroundColor = "#32CD32";
+        button.style.transform = "scale(0.1)";
+        setTimeout(() => button.remove(), 300);
+
+        
+        score++;
+        updateScore();
+        setTargetLetter();
+      } else {
+        alert(`Oops! That was ${letter}. Try again.`);
+      }
+    }
+
+  
+    function updateScore() {
+      scoreDisplay.textContent = `Score: ${score}`;
+    }
+
+    function resetGame() {
+      score = 0;
+      letters.splice(0, letters.length, ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"); 
+      updateScore();
+      generateButtons();
+      setTargetLetter();
+    }
+
+    
+    function generateBalloons() {
+      const balloonColors = ["#FF6347", "#32CD32", "#FF69B4", "#40E0D0", "#FFD700"];
+      for (let i = 0; i < 5; i++) {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = `${Math.random() * 100}vw`;
+        balloon.style.animationDuration = `${Math.random() * 5 + 5}s`; 
+        balloon.style.animationDelay = `${Math.random() * 5}s`; 
+        balloon.style.backgroundColor = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+        
+     
+        balloon.style.setProperty('--direction', Math.random() > 0.5 ? 1 : -1); 
+
+        document.body.appendChild(balloon);
+      }
+    }
+
+   
+    function initGame() {
+      generateButtons();
+      setTargetLetter();
+      generateBalloons(); 
+    }
+
+    
+    window.onload = initGame;
+  </script>
+    <audio id="background-audio">
+        <source src="C:\Users\hp\Desktop\project sounds\feel-good-268714.mp3" type="audio/wav">
+        Your browser does not support the audio element.
+        <script>
+            const audio = document.getElementById('background-audio');
+        
+            function enableAudio() {
+                audio.play();
+                document.removeEventListener('click', enableAudio); 
+            }
+        
+            document.addEventListener('click', enableAudio);
+  </script>
+</body>
+</html>
