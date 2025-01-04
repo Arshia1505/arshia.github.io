@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let’s Talk  and Have Fun!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Barriecito&family=Delius&family=Fredericka+the+Great&family=Henny+Penny&family=Risque&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Barriecito&family=Delius&family=Englebert&family=Fredericka+the+Great&family=Henny+Penny&family=Risque&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-image: url('https://cdn.leonardo.ai/users/671a9a18-d698-4923-8dac-2d99e017000b/generations/7cf687c4-e282-499f-a94c-5843cd522a66/Leonardo_Phoenix_A_whimsical_background_featuring_a_colorful_a_3.jpg');
+            backdrop-filter:blur(2px);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+       /* .container {
+            text-align: center;
+            background-color: #ffeb3b;
+            padding: 70px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            animation: popIn 1s ease-in-out;
+        }*/
+        .container {
+    text-align: center;
+    background: radial-gradient(circle, #ffeb3b, #ff5722); /* Apply a radial gradient */
+    padding: 70px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    animation: popIn 1s ease-in-out;
+}
+
+        h1 {
+            color: #97fdff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+            font-family: "Atma", system-ui;
+            font-size:70px;
+        }
+
+        .topic {
+            font-size: 45px;
+            color: white;
+            margin: 20px;
+            animation: slideIn 1s ease-in-out;
+            font-family: "Englebert", cursive;
+        }
+
+        textarea {
+            width: 80%;
+            height: 150px;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #009688;
+            transition: 0.3s;
+            resize: none;
+        }
+
+        textarea:focus {
+            border-color: #ff5722;
+            outline: none;
+        }
+
+        button {
+            background-color: #ff5722;
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff7043;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lets Talk and Have Fun!</h1>
+    <div class="topic" id="topic">Loading Topic...</div>
+    <textarea id="writingArea" placeholder="Write your thoughts here..."></textarea>
+    <br>
+    <button onclick="generateTopic()">Generate New Topic</button>
+</div>
+
+<script>
+    const topics = [
+        "If you could have any superpower, what would it be and why?",
+        "Describe your perfect day at the beach.",
+        "If you could meet any animal, which one would it be and why?",
+        "What would you do if you found a treasure chest?",
+        "If you were a superhero, what would your name be?",
+        "Describe your dream treehouse.",
+        "If you could live in any time period, when would it be?",
+        "What would you do with a magic wand?",
+        "If you could be any character in a book, who would you be?",
+        "What is the best thing you've ever done for someone else?"
+    ];
+
+    function generateTopic() {
+        // Randomly pick a topic
+        const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+        
+        // Display the topic in the HTML
+        document.getElementById('topic').textContent = randomTopic;
+
+        // Clear the textarea
+        document.getElementById('writingArea').value = '';
+    }
+
+    // Generate a topic when the page loads
+    window.onload = generateTopic;
+</script>
+
+</body>
+</html>
