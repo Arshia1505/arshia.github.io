@@ -1,0 +1,480 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+    <title>Welcome to Ella's Number World</title>
+    <style>
+        body {
+            font-family: "Sofadi One", Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            background-image: url('https://files.oaiusercontent.com/file-GpfVInHZiH4uG7L6dnNaZIl4?se=2024-11-07T09%3A53%3A40Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D8fcd1923-b4e2-4809-b3f3-261977d16579.webp&sig=DH6/MIHbsAKAFUT/es7dyp0/qQliKpzROwjEJMTlD9g%3D');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            backdrop-filter: blur(5px);
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav li {
+            height: 50px;
+        }
+
+        nav a {
+            font-family: cursive;
+            font-weight: bolder;
+            color: rgb(5, 73, 75);
+            height: 100%;
+            padding: 0px 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .right {
+            float: right;
+        }
+
+        nav a:hover {
+            background-color: rgb(232, 255, 196);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 0.0);
+            backdrop-filter: blur(10px);
+            box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .sidebar li {
+            width: 100%;
+        }
+
+        .sidebar a {
+            width: 100%;
+        }
+
+        @media (max-width: 500px) {
+            .hideOnMobile {
+                display: none;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 170px auto;
+            padding: 20px;
+            background-color: rgba(137, 176, 211, 0.6);
+            border: 3px solid #d4af37;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            color: gold;
+            font-size: 2.5rem;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .character-img {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+
+        .btn-custom {
+            font-size: 1.5rem;
+            padding: 10px 25px;
+            background-color: #f57f17;
+            color: #fff;
+            border-radius: 10px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: purple;
+            transform: scale(1.1);
+        }
+
+        .btn-custom::before {
+            content: "\2728";
+            font-size: 2em;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-custom:hover::before {
+            transform: rotate(360deg);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        p {
+            font-size: 3rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #5a5a5a;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px"
+                        viewBox="0 -960 960 960" width="26px" fill="#5f6368">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg></a></li>
+            <li><a href="#">3+</a></li>
+            <li><a href="#">5+</a></li>
+            <li><a href="#">10+</a></li>
+            <li><a href="#">Fun Facts</a></li>
+        </ul>
+        <ul>
+            <li class="hideOnMobile"><a href="#h">EXPLORE</a></li>
+            <li class="hideOnMobile"><a href="#c">COURSES</a></li>
+            <li class="hideOnMobile"><a href="#a">ABOUT</a></li>
+            <li style="padding-left:850px;" class="hideOnMobile"><a href="#co">CONTACT</a></li>
+            <li style="padding-left:10px;" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                        height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg></a></li>
+        </ul>
+    </nav>
+    <div class="container intro">
+        <img src="https://th.bing.com/th/id/OIP.y5FrNUiXnvR_PNjwjT7wnwHaHa?rs=1&pid=ImgDetMain"
+            alt="Image of Milo the Monkey character" class="character-img">
+        <h2>Hi there, Little Explorer!</h2>
+        <p>I'm Ella!</p>
+
+        <a href="facts2.html" class="animal-link"><button class="btn btn-custom">Ready to know some cool
+                facts?</button></a>
+    </div>
+
+    <script>
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+    <title>Welcome to Ella's Number World</title>
+    <style>
+        body {
+            font-family: "Sofadi One", Arial, sans-serif;
+            color: #b0bc2d;
+            text-align: center;
+            /* background-image: url("https://lstation.co/_next/image?url=%2Fimages%2Fbanner.webp&w=3840&q=75"); */
+            background-image: url("https://img.freepik.com/premium-photo/glowing-mushrooms-fireflies-light-way-through-enchanted-forest-night_604472-50374.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            /* backdrop-filter: blur(5px); */
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav li {
+            height: 50px;
+        }
+
+        nav a {
+            font-family: cursive;
+            font-weight: bolder;
+            color: rgb(5, 73, 75);
+            height: 100%;
+            padding: 0px 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .right {
+            float: right;
+        }
+
+        nav a:hover {
+            background-color: rgb(232, 255, 196);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 0.0);
+            backdrop-filter: blur(10px);
+            box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .sidebar li {
+            width: 100%;
+        }
+
+        .sidebar a {
+            width: 100%;
+        }
+
+        @media (max-width: 500px) {
+            .hideOnMobile {
+                display: none;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 170px auto;
+            padding: 20px;
+            background-color: rgba(43, 73, 58, 0.6);
+            border: 3px solid #d4af37;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+            background-color:url("https://th.bing.com/th/id/OIP.y5FrNUiXnvR_PNjwjT7wnwHaHa?rs=1&pid=ImgDetMain");
+           
+        }
+
+        h2 {
+            color: gold;
+            font-size: 2.5rem;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .character-img {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+
+        .btn-custom {
+            font-size: 1.5rem;
+            padding: 10px 25px;
+            background-color: #f57f17;
+            color: #fff;
+            border-radius: 10px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: rgb(223, 235, 227);
+            transform: scale(1.1);
+        }
+
+        .btn-custom::before {
+            content: "\2728";
+            font-size: 2em;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-custom:hover::before {
+            transform: rotate(360deg);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        p {
+            font-size: 3rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #ecea72;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px"
+                        viewBox="0 -960 960 960" width="26px" fill="#5f6368">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg></a></li>
+            <li><a href="#">3+</a></li>
+            <li><a href="#">5+</a></li>
+            <li><a href="#">10+</a></li>
+            <li><a href="#">Fun Facts</a></li>
+        </ul>
+        <ul>
+            <li class="hideOnMobile"><a href="#h">EXPLORE</a></li>
+            <li class="hideOnMobile"><a href="#c">COURSES</a></li>
+            <li class="hideOnMobile"><a href="#a">ABOUT</a></li>
+            <li style="padding-left:850px;" class="hideOnMobile"><a href="#co">CONTACT</a></li>
+            <li style="padding-left:10px;" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                        height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg></a></li>
+        </ul>
+    </nav>
+    <div class="container intro">
+        <img src="https://th.bing.com/th/id/OIP.y5FrNUiXnvR_PNjwjT7wnwHaHa?rs=1&pid=ImgDetMain"
+            alt="Image of Milo the Monkey character" class="character-img">
+        <h2 id="intro-text">Hi there, Little Explorer!</h2>
+        <p id="fact-text">I'm Ella!</p>
+
+        <a href="facts2.html" class="animal-link">
+            <button id="fact-button" class="btn btn-custom">Ready to know some cool facts?</button>
+        </a>
+    </div>
+
+    
+    <audio id="intro-audio" preload="auto">
+        <source src="C:\Users\Angel Sharma\Music\sounds\ready_to_know.mp3.mp3" type="audio/mp3">
+    </audio>
+    <audio id="fact-audio" preload="auto">
+        <source src="C:\Users\Angel Sharma\Music\Sounds\hello,ella.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+       
+        document.getElementById("intro-text").addEventListener("mouseenter", () => {
+            document.getElementById("intro-audio").play();
+        });
+
+        
+        document.getElementById("fact-text").addEventListener("mouseenter", () => {
+            document.getElementById("intro-audio").play();
+        });
+
+      
+        document.getElementById("fact-button").addEventListener("mouseenter", () => {
+            document.getElementById("fact-audio").play();
+        });
+
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

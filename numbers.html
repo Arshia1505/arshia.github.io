@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+    <title>Welcome to Buddy's Number World</title>
+    <style>
+        /* Styling for navigation bar */
+        nav {
+            background-color: white;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: cursive;
+            font-weight: bolder;
+            color: rgb(5, 73, 75);
+            padding: 0 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a:hover {
+            background-color: rgb(232, 255, 196);
+        }
+
+        /* Main content styles */
+        body {
+            font-family: "Sofadi One", Arial, sans-serif;
+            background-image: url('https://image.slidesdocs.com/responsive-images/background/beautiful-child-colorful-children-owl-education-powerpoint-background_4c187effcd__960_540.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            height:500px;
+            margin: 120px auto;
+            padding: 20px;
+            background-color: rgba(101, 239, 177, 0.2);
+            border: 3px solid #8d37d4;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(7, 232, 183, 0.595);
+        }
+
+        h2 {
+            color: #6a1b9a;
+            font-size: 2.5rem;
+        }
+
+        .character-img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            font-size: 1.5rem;
+            padding: 10px 25px;
+            margin-top:45px;
+            background-color: #2e89ce;
+            color: #fff;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #5fd8e8;
+            transform: scale(1.1);
+        }
+
+        #counting-section {
+            display: none;
+            padding: 20px;
+            background-color: rgba(255, 247, 230, 0.9);
+            border-radius: 10px;
+        }
+
+        #number-display {
+            font-size: 4rem;
+            color: #6a1b9a;
+            margin: 20px 0;
+        }
+
+        .object-container img {
+            width: 80px;
+            margin: 10px;
+        }
+        p{
+            font-size:1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <nav>
+        <ul>
+            <li><a href="#explore">EXPLORE</a></li>
+            <li><a href="#courses">COURSES</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="container intro">
+        <img src="https://clipart-library.com/images_k/monkey-clipart-transparent-background/monkey-clipart-transparent-background-3.png"
+            alt="Milo the Monkey" class="character-img">
+        <h2>Hi there, Little Explorer!</h2>
+        <p>I'm Milo! Numbers are how we count things. Let's start with 1, then go to 10. Ready to count together?</p>
+        <button class="btn btn-custom" onclick="startLesson()">Ready to Meet the Numbers?</button>
+    </div>
+
+    
+    <div id="counting-section">
+        <h2>Milo's Number Adventure</h2>
+        <p>Look! Here's the number:</p>
+        <div id="number-display">1</div>
+        <p>Can you say the number?</p>
+        <button class="btn btn-custom" onclick="nextNumber()">Show the Next Number</button>
+        <div id="object-container" class="d-flex justify-content-center flex-wrap mt-3"></div>
+        <button class="btn btn-custom mt-4" onclick="goBackToIntro()">Go Back to Start</button>
+    </div>
+
+   
+    <script>
+        function startLesson() {
+            document.querySelector('.intro').style.display = 'none';
+            document.getElementById('counting-section').style.display = 'block';
+        }
+
+        let currentNum = 1;
+
+        function nextNumber() {
+            if (currentNum <= 10) {
+              
+                document.getElementById('number-display').innerText = currentNum;
+ 
+                let audio = new Audio(`Sounds/${currentNum}.mp3`); 
+                audio.play();
+
+                let objectContainer = document.getElementById('object-container');
+                objectContainer.innerHTML = '';
+                for (let i = 0; i < currentNum; i++) {
+                    let img = document.createElement('img');
+                    img.src = 'https://i.pinimg.com/originals/4e/41/1d/4e411dc9ce6dad8af02a48947453820e.png';
+                    img.alt = 'Star';
+                    img.style.height = '200px'; 
+                    img.style.width = '100px'; 
+                    img.style.margin = '10px'; 
+                    objectContainer.appendChild(img);
+                }
+
+                currentNum++;
+            } else {
+                alert("Great job! You've learned the numbers 1 to 10!");
+            }
+        }
+
+
+        function goBackToIntro() {
+            document.getElementById('counting-section').style.display = 'none';
+            document.querySelector('.intro').style.display = 'block';
+            currentNum = 1;
+            document.getElementById('number-display').innerText = currentNum;
+            document.getElementById('object-container').innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>

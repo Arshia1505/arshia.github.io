@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes Adventure!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sofadi One', Arial, sans-serif;
+            text-align: center;
+            background-color: #FFFAF0;
+            color: #4A4A4A;
+            font-size: 2em;
+            background-image: url('https://th.bing.com/th/id/R.19a28464f37cc7f0deec2c7e330c135a?rik=DzPJAf7AWyaj3Q&riu=http%3a%2f%2fwallpapercave.com%2fwp%2faP75xr3.jpg&ehk=VkrBbjW%2fsDwCieG6KGckbcYjrA1NX5XYXw4XzSH%2bpy8%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            backdrop-filter: blur(5px);
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #f4f6e0;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p{
+            color:aliceblue;
+           
+
+        }
+
+        .animatedText {
+            display: inline-block;
+            font-weight: 700;
+           
+        }
+
+        .animatedText span {
+            opacity: 0;
+            display: inline-block;
+            transition: opacity 0.3s ease;
+        }
+
+        .shapes-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .shape-card {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffdab9;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #4A4A4A;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shape-card:hover {
+            transform: scale(1.1);
+            background-color: #f1c232;
+        }
+
+        .shape-card::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.2;
+            transition: opacity 0.3s ease;
+        }
+
+        .shape-card.circle::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Circle_color.svg/1200px-Circle_color.svg.png');
+        }
+
+        .shape-card.square::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Square_simple.svg/1024px-Square_simple.svg.png');
+        }
+
+        .shape-card.triangle::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Triangle_equilateral.svg/1024px-Triangle_equilateral.svg.png');
+        }
+
+        .shape-card.rectangle::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Rectangle.svg/1200px-Rectangle.svg.png');
+        }
+    </style>
+</head>
+
+<body>
+    <audio autoplay>
+        <source src="C:\Users\Angel Sharma\Music\Sounds\shapes.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h1 id="animatedText">What is a Shape?</h1>
+    
+    <div class="shapes-container">
+        <a href="shapes2.html" class="shape-card circle">Circle</a>
+        <a href="square.html" class="shape-card square">Square</a>
+        <a href="triangle.html" class="shape-card triangle">Triangle</a>
+        <a href="rectangle.html" class="shape-card rectangle">Rectangle</a>
+    </div>
+    <p>Shapes are simple forms we see everywhere! They have different sides, corners, and sizes.</p>
+    <p>Click on a shape to learn more!</p>
+
+
+    <script>
+
+        function animateText() {
+            const textElement = document.getElementById('animatedText');
+            const text = textElement.textContent;
+            textElement.textContent = '';
+
+
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = text[i];
+                span.style.transitionDelay = `${i * 0.05}s`;
+                textElement.appendChild(span);
+            }
+
+
+            setTimeout(() => {
+                const spans = textElement.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.style.opacity = '1';
+                });
+            }, 100);
+        }
+
+        window.onload = animateText;
+    </script>
+</body>
+
+</html>

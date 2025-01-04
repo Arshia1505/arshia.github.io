@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1)
+        }
+
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav li {
+            height: 50px;
+        }
+
+        nav a {
+            font-family: cursive;
+            font-weight: bolder;
+            color: rgb(5, 73, 75);
+            height: 100%;
+            padding: 0px 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .right {
+            float: right;
+        }
+
+        nav a:hover {
+            background-color: rgb(232, 255, 196);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 0.0);
+            backdrop-filter: blur(10px);
+            box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .sidebar li {
+            width: 100%;
+        }
+
+        .sidebar a {
+            width: 100%;
+        }
+
+        @media(max-width:500px) {
+            .hideOnMobile {
+                display: none;
+            }
+        }
+
+        .box {
+            margin: auto;
+            border: 3px solid rgba(43, 169, 173, 0.394);
+            border-radius: 52px;
+            padding: 60px;
+            margin-top: 0px;
+            margin-bottom: 200px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            margin-left: 200px;
+            margin-right: 200px;
+            animation-name: angelballY;
+            animation: angelballY 3s ease-in 0s infinite reverse;
+        }
+
+        h1::first-letter {
+            color: gold;
+            font-size: 60px;
+            transform: scale(1.05);
+            display: inline-block;
+            font-size: 1.5em;
+            color: #FFD700;
+            /* Gold color for first letter */
+            transition: transform 0.3s ease;
+            animation: rotateLetter 2s infinite ease-in-out;
+
+        }
+
+        @keyframes rotateLetter {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box:hover {
+            background-color: rgb(158, 24, 149);
+            cursor: pointer;
+            border: 2px solid gold;
+        }
+
+        .box a {
+            text-decoration: none;
+            color:black;
+        }
+
+        @keyframes angelballY {
+            from {}
+
+            to {
+                transform: translateY(100px);
+            }
+
+        }
+
+        .c {
+            background-color: rgb(96, 60, 93);
+            height: 100px;
+            width: px;
+            margin-top: 0;
+            margin-bottom: 50px;
+
+            .c1.h1 {
+                font-family: "Sofadi One", system-ui;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+        }
+
+        .c1 {
+            color: gold;
+            font-size: 50px;
+            margin-top: -200px;
+            animation-name: angelX;
+            animation: angelX 10s ease-out 1.7s infinite;
+            font-family: "Inconsolata", monospace;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+
+        }
+
+        @keyframes angelX {
+            from {}
+
+            to {
+                transform: translateX(1600px);
+            }
+
+        }
+
+        .img2 {
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+            image-orientation: 30deg;
+        }
+
+        .e {
+            font-size: 30px;
+            margin-left: 70px;
+            margin-top: 50px;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .bg {
+            margin-bottom: 0;
+            height: auto;
+            width: 100%;
+        }
+
+        body {
+            height: 1000px;
+            background-image: url("https://cdn.leonardo.ai/users/10a5e06c-e33d-4741-9487-2b17d2d3f26e/generations/4aa68a2a-736a-4078-b890-1d514eccfdaf/Leonardo_Phoenix_A_whimsical_dreamy_background_image_for_a_bed_2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+
+        .intro>h2 {
+            display: flex;
+            margin: auto;
+
+        }
+
+        .intro {
+            background-color: antiquewhite;
+            text-align: center;
+            margin: auto;
+            margin-top: 0px;
+            margin-bottom: 250px;
+            height: 200px;
+            padding-top: 80px;
+        }
+
+        .a {
+            font-size: 50px;
+            margin: 20px;
+            margin-left: 400px;
+        }
+
+        .b {
+            font-size: 50px;
+            margin: 20px;
+        }
+
+        .c3 {
+            font-size: 50px;
+            margin: 20px;
+        }
+
+        .story-categories {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 120px;
+            background-color: #fff8e1;
+            margin-bottom: 100px;
+            height: 500px;
+            text-align: center;
+
+        }
+
+        .story-categories a {
+            text-decoration: none;
+            color:black;
+        }
+
+        .category {
+            width: 30%;
+            background: linear-gradient(to bottom, purple, pink);
+            padding-top: 100px;
+            border-radius: 10px;
+            height: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: popIn 1s ease-in-out;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .category h4 {
+            font-size: 2em;
+            color: #28293f;
+            animation: fadeInLeft 1s ease-in-out;
+        }
+
+        .category h4::first-letter {
+            color: gold
+        }
+
+        /* Fade-in-left Animation */
+        @keyframes fadeInLeft {
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .category p {
+            font-size: 1.5em;
+            color: #fff8e1;
+            margin-top: 15px;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            animation: fadeInRight 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .story-cat {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .story-cat h3 {
+            font-family: "Sofadi One", system-ui;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 40px;
+        }
+
+        .subcategories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #f3e5f5;
+            margin: 0px 0px;
+        }
+
+        .subcategory {
+            width: 40%;
+            background-color: #9c27b0;         
+            margin: 14px;
+            padding: 20px;
+            border-radius: 20px;         
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            border: 5px solid #FFD700; 
+        }
+
+        .subcategory:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: #7B1FA2;
+        }
+
+        .subcategory a {
+            text-decoration: none;
+            color: #FFD700;
+        }
+
+        .subcategory h4 {
+            font-size: 1.8em;
+            color: #FFD700;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .subcategory p {
+            font-size: 1.1em;
+            color: #fff;
+            transition: color 0.3s ease;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .subcategory:hover h4 {
+            color: #FFEA00;
+        }
+
+        .subcategory:hover p {
+            color: #c68dd0;
+        }
+
+        .subcategory::before {
+            content: "\2728";
+            font-size: 2em;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .subcategory:hover::before {
+            transform: rotate(360deg);
+        }
+
+        .fairy-tales,
+        .bed-time {
+            font-size: 80px;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 700;
+            font-style: normal;
+            margin-top: 300px;
+            padding: 40px;
+            text-align: center;
+            color: rgb(125, 55, 97);
+            background-color: antiquewhite;
+        }
+
+        .img1,
+        .img2,
+        .img3,
+        .img4 {
+            height: 300px;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px"
+                        viewBox="0 -960 960 960" width="26px" fill="#5f6368">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg></a></li>
+            <li><a href="#">3+</a></li>
+            <li><a href="#">5+</a></li>
+            <li><a href="#">10+</a></li>
+            <li><a href="#">Fun Facts</a></li>
+
+        </ul>
+        <ul>
+            <li class="hideOnMobile"><a href="#h">HOME</a></li>
+            <li class="hideOnMobile"><a href="#c">COURSES</a></li>
+            <li class="hideOnMobile"><a href="#a">ABOUT</a></li>
+            <li style="padding-left:850px;" class="hideOnMobile"><a href="#co">CONTACT</a></li>
+            <li style="padding-left:10px;" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                        height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
+
+
+
+
+
+    <div class="svg">
+        <svg viewBox="0 0 500 500">
+            <path id="curve" fill="transparent"
+                d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+            <text width="500" ; height="60" ; font-family="Sofadi One" ;color="white" ; color:white; font-weight: 400;
+                font-style: normal>
+                <textPath xlink:href="#curve">
+                    Explore Magical English Stories and Test Your Knowledge!
+                </textPath>
+            </text>
+        </svg>
+    </div>
+
+
+
+    <div class="c">
+        <p class="c1">Explore the magical world of stories!</p>
+
+    </div>
+
+    <section class="intro">
+        <h2>
+            <div class="a">Explore</div>
+            <div class="b"> Our Story</div>
+            <div class="c3"> Collection!</div>
+        </h2>
+        <div>
+            <p>Step into a world of imagination with our collection of fun and engaging stories. Whether you love
+                magical fairy tales, calming bedtime stories, or exciting interactive adventures, we've got you covered!
+            </p>
+        </div>
+    </section>
+
+    <div class="story-cat">
+        <h3>Story Categories</h3>
+    </div>
+    <section class="story-categories">
+        <a href="#fairy-tales">
+            <div class="category">
+                <h4>Fairy Tales</h4>
+                <p>Classic fairy tales with beautiful illustrations. Perfect for magical adventures!</p>
+        </a></div>
+        <a href="#bed-time">
+            <div class="category">
+                <h4>Bedtime Stories</h4>
+                <p>Short, soothing stories to help you wind down for the night.</p>
+        </a></div>
+        <div class="category">
+            <h4>Interactive Stories</h4>
+            <p>Choose your own adventure! Make decisions and see how the story changes.</p>
+        </div>
+    </section>
+
+
+
+
+    <h3 id="bed-time" class="bed-time">Bed Time Stories</h3>
+    <section class="subcategories">
+
+        <div class="subcategory">
+            <a href="short-bedtime-stories.html">
+                <h4>Short Bedtime Stories</h4>
+                <p>Perfectly short stories to help kids wind down before sleep.</p>
+            </a>
+        </div>
+        <div class="subcategory">
+            <a href="animal-bedtime-stories.html">
+                <h4>Animal Bedtime Stories</h4>
+                <p>Engaging stories featuring friendly animals, ideal for bedtime.</p>
+            </a>
+        </div>
+        <div class="subcategory">
+            <a href="moral-bedtime-stories.html">
+                <h4>Moral Bedtime Stories</h4>
+                <p>Stories that teach valuable life lessons while putting kids to sleep.</p>
+            </a>
+        </div>
+        <div class="subcategory">
+            <a href="fantasy-bedtime-stories.html">
+                <h4>Fantasy Bedtime Stories</h4>
+                <p>Drift off into dreamland with tales of magical worlds and adventures.</p>
+            </a>
+        </div>
+    </section>
+
+    <h3 id="fairy-tales" class="fairy-tales">Explore Fairy Tales</h3>
+
+    <div class="box">
+        <div class="name">
+            <div class="style-img1"><img class="img1"
+                    src="https://th.bing.com/th/id/OIP.H1K8kDFZTW5asnjG2CWLigHaEo?rs=1&pid=ImgDetMain"></div>
+            <h1>Classic Tales</h1>
+
+        </div>
+        <div class="e"><a href="classic-fairy-tales.html">"Step into timeless adventures where brave heroes, magical
+                creatures, and enchanted lands
+                come to
+                life! From beanstalks reaching the sky to glass slippers that fit just right, these stories have been
+                told
+                for generations, and now it's your turn to dive into the magic!"</div>
+        </a>
+    </div>
+
+
+    <div class="box">
+        <div class="name">
+            <div class="style-img1"><img class="img2" src="https://wallpaperaccess.com/full/554948.jpg"></div>
+            <h1>Fairy Tales</h1>
+        </div>
+        <div class="e">"Enter a world where wishes come true, where wicked witches and noble princes battle for the
+            kingdom's future! From talking animals to magical forests, these tales will take you to faraway lands filled
+            with wonder and adventure!"</div>
+    </div>
+
+    <div class="box">
+        <div class="name">
+            <div class="style-img1"><img class="img3"
+                    src="https://cdn.slidesharecdn.com/ss_thumbnails/folktales-120216053011-phpapp02-thumbnail-4.jpg?cb=1329370699">
+            </div>
+            <h1>Folktales</h1>
+        </div>
+        <div class="e">"Travel across continents with stories that have been whispered around campfires for generations.
+            Folktales from around the world tell of clever tricksters, wise elders, and the magic hidden in everyday
+            life!"</div>
+    </div>
+
+    <div class="box">
+        <div class="name">
+            <div class="style-img1"><img class="img4"
+                    src="https://i.pinimg.com/originals/b5/2f/c6/b52fc624dd7fd26e0b2dbd413f888cb8.jpg"></div>
+            <h1>Magical Creatures</h1>
+        </div>
+        <div class="e">"Meet dragons that soar through the skies, elves who live in enchanted forests, and unicorns that
+            grace the pages with their magic! These tales of mystical creatures will ignite your imagination and take
+            you on thrilling adventures!"</div>
+    </div>
+
+    <h3 id="interactive" class="interactive">interactive Stories</h3>
+    <section class="subcategories-i">
+
+        <div class="subcategory-i">
+            <a href="short-bedtime-stories.html">
+                <h4>Short Bedtime Stories</h4>
+                <p>Perfectly short stories to help kids wind down before sleep.</p>
+            </a>
+        </div>
+        <div class="subcategory-i">
+            <a href="animal-bedtime-stories.html">
+                <h4>Animal Bedtime Stories</h4>
+                <p>Engaging stories featuring friendly animals, ideal for bedtime.</p>
+            </a>
+        </div>
+        <div class="subcategory-i">
+            <a href="moral-bedtime-stories.html">
+                <h4>Moral Bedtime Stories</h4>
+                <p>Stories that teach valuable life lessons while putting kids to sleep.</p>
+            </a>
+        </div>
+        <div class="subcategory-i">
+            <a href="fantasy-bedtime-stories.html">
+                <h4>Fantasy Bedtime Stories</h4>
+                <p>Drift off into dreamland with tales of magical worlds and adventures.</p>
+            </a>
+        </div>
+    </section>
+</body>
+
+</html>

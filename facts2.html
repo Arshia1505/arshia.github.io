@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+    <title>Discover Amazing Science Facts with the Wise Elephant!</title>
+    <style>
+        body {
+            background-color: #FFFAF0;
+            text-align: center;
+            color: #4A4A4A;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl2Gd7cp1vmvyA1Ws8ObqOCpbWUR5RpQaadJdCwwzckzcqbTR0awEhRo3nmlTK8jiFsf0&usqp=CAU');
+            background-size: cover;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            background-position: center;
+            backdrop-filter: blur(5px);
+            font-size: 50px;
+        }
+
+        h1 {
+            color: #FF6347;
+            font-size: 1.7em;
+        }
+
+        h2 {
+            color: #008080;
+            font-size: 1.5em;
+        }
+
+        .fact {
+            border: 2px solid #937c966c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 80px 80px;
+            background-color: rgb(244, 244, 107, 0.4);
+            backdrop-filter: blur(5px);
+            font-family: "Sofadi One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            height: 650px;
+            background-repeat: no-repeat;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/019/045/782/original/elephant-graphic-clipart-design-free-png.png');
+            background-position: 470px 380px;
+            background-size: 300px;
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .elephant {
+            font-size: 3em;
+            color: #FF4500;
+        }
+
+        .animated-text span {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .p {
+            font-size: 30px;
+            margin-top: 200px;
+        }
+
+        .animal-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .animal-link:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fact">
+        <a href="facts3.html" class="animal-link">
+            <h2 id="fact-text">Fact 1: Elephants Love to Splash!</h2>
+        </a>
+        <p id="animatedText" class="animated-text">Just like me! Elephants love water. They play and splash around to cool
+            off!</p>
+    </div>
+
+  
+    <audio id="elephant-audio" preload="auto">
+        <source src="Sounds\fact1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      
+        document.getElementById("fact-text").addEventListener("mouseenter", () => {
+            elephantAudio = document.getElementById("elephant-audio").play();
+            
+           
+        });
+
+        function animateText() {
+            const textElement = document.getElementById('animatedText');
+            const text = textElement.textContent;
+            textElement.textContent = '';
+
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = text[i];
+                span.style.transitionDelay = `${i * 0.05}s`;
+                textElement.appendChild(span);
+            }
+
+            setTimeout(() => {
+                document.querySelectorAll('#animatedText span').forEach(span => {
+                    span.style.opacity = '1';
+                });
+            }, 100);
+        }
+
+        window.onload = animateText;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+    <title>Discover Amazing Science Facts with the Wise Elephant!</title>
+    <style>
+        body {
+
+            text-align: center;
+            color: #4A4A4A;
+            background-image: url('https://img.freepik.com/premium-photo/old-library-with-old-books-background_916191-21154.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: "Sofadi One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            /* background-position: center; */
+            /* backdrop-filter: blur(5px); */
+            font-size: 50px;
+        }
+
+        h1 {
+            color: #f3efee;
+            font-size: 1.7em;
+        }
+
+        h2 {
+            color: #ebf0f0;
+            font-size: 1.5em;
+        }
+
+        .fact {
+            border: 2px solid #937c966c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 220px 120px;
+            background-color: rgba(60, 74, 87, 0.568);
+            /* backdrop-filter: blur(5px); */
+            font-family: "Sofadi One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            height: 470px;
+            background-repeat: no-repeat;
+            background-image: url('https://png.pngtree.com/png-vector/20240314/ourmid/pngtree-elephant-surprised-face-cartoon-cute-png-image_11945668.png');
+        }
+
+        .elephant {
+            font-size: 3em;
+            color: #FF4500;
+        }
+
+        .animated-text span {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .p {
+            font-size: 30px;
+            color: #f3efee;
+        }
+
+        .animal-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .animal-link:hover {
+            text-decoration: none;
+        }
+
+        .fact::before {
+            content: "\2606";
+            font-size: 2em;
+            color: #ebeae5;
+            display: block;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .fact:hover::before {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="elephant-audio" preload="auto">
+        <source src="Sounds\fact2.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="fact">
+        <a href src="facts3.html" class="animal-link">
+            <h2 id="fact-text">Fact 2:Giant Stars!</h2>
+        </a>
+
+        <p id="animatedText" class="animated-text">Stars are giant balls of burning gas, shining in space!</p>
+    </div>
+
+    <script>
+        document.getElementById("animatedText").addEventListener("mouseenter", () => {
+            elephantAudio = document.getElementById("elephant-audio")
+            elephantAudio.load()
+            elephantAudio.play()
+            ;
+
+
+        });
+
+        function animateText() {
+            const textElement = document.getElementById('animatedText');
+            const text = textElement.textContent;
+            textElement.textContent = '';
+
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = text[i];
+                span.style.transitionDelay = `${i * 0.05}s`;
+                textElement.appendChild(span);
+            }
+
+
+            setTimeout(() => {
+                document.querySelectorAll('#animatedText span').forEach(span => {
+                    span.style.opacity = '1';
+                    span.style.color = 'white';
+                });
+            }, 100);
+        }
+
+
+        window.onload = animateText;
+    </script>
+
+</body>
+
+</html>
